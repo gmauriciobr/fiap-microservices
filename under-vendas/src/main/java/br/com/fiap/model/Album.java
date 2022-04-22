@@ -56,7 +56,4 @@ public class Album {
   @Formula("(select count(*) from foto f where f.album_id = id)")
   private Long quantidadeFotos;
 
-//  public Album(Long id) {
-//    this.id = id;
-//  }
 }

@@ -4,10 +4,12 @@ import br.com.fiap.model.Album;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
-@Data
+@Setter
+@Getter
 public class AlbumViewModel {
 
   private String token;

@@ -43,8 +43,4 @@ public class Fotografo {
   @LastModifiedDate
   private LocalDateTime dataAlteracao;
 
-//  public Fotografo(Long id) {
-//    this.id = id;
-//  }
-
 }

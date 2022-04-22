@@ -3,10 +3,12 @@ package br.com.fiap.viewmodel;
 import br.com.fiap.model.Foto;
 import java.util.List;
 import java.util.stream.Collectors;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
-@Data
+@Setter
+@Getter
 public class FotoViewModel {
 
   private String token;

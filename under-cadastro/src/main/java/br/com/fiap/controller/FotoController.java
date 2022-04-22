@@ -34,7 +34,7 @@ public class FotoController {
     return ResponseEntity.ok()
       .contentType(MediaType.parseMediaType(URLConnection.guessContentTypeFromName(foto.getFilename())))
       .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + foto.getFilename() + "\"")
-      .body(foto.getFotoBaixaQualidade());
+      .body(foto.getFotoOriginal());
   }
 
   @PostMapping(value = "/album/{albumId}/foto", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
