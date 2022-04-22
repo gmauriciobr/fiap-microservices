@@ -1,0 +1,85 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - spring-network
+    command: --lower_case_table_names=0
+    environment:
+      MYSQL_ROOT_PASSWORD: fiap
+      MYSQL_DATABASE: teste_db
+      MYSQL_USER: fiap
+      MYSQL_PASSWORD: fiap
+
+  rabbitmq:
+    image: rabbitmq:3.9.5-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - spring-network
+
+  cadastro:
+    build:
+      dockerfile: ./under-cadastro/Dockerfile
+      context: .
+    image: under/cadastro
+    container_name: cadastro
+    ports:
+      - 8080:8080
+    networks:
+      - spring-network
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+    depends_on:
+      - mysql
+      - rabbitmq
+    restart: on-failure:10
+
+  consumer:
+    build:
+      dockerfile: ./under-consumer/Dockerfile
+      context: .
+    image: under/consumer
+    container_name: consumer
+    networks:
+      - spring-network
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+    depends_on:
+      - rabbitmq
+    restart: on-failure:10
+
+  vendas:
+    build:
+      dockerfile: ./under-vendas/Dockerfile
+      context: .
+    image: under/vendas
+    container_name: vendas
+    ports:
+      - 8081:8081
+    networks:
+      - spring-network
+    environment:
+      PORT: 8081
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+    depends_on:
+      - mysql
+      - rabbitmq
+    restart: on-failure:10
+
+networks:
+  spring-network:
+    driver: bridge

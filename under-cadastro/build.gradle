@@ -1,0 +1,79 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'jacoco'
+}
+
+group = 'br.com.fiap'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	//Spring
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	//Lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'commons-io:commons-io:2.11.0'
+
+	//DB
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'org.flywaydb:flyway-core'
+
+	//MQ
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+	//Teste
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.github.glytching:junit-extensions:2.4.0'
+	testImplementation 'com.github.fridujo:rabbitmq-mock:1.1.1'
+}
+
+jacoco {
+	toolVersion = "0.8.7"
+	reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled false
+		html.enabled true
+		html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+	}
+	afterEvaluate {
+		classDirectories.from = classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					'br/com/fiap/Application.*',
+					'br/com/fiap/config/*'
+			])
+		}
+	}
+}
+
+bootJar {
+	archiveName 'cadastro.jar'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
