@@ -15,6 +15,7 @@ Este documento tem como objetivo descrever os requisitos para a elaboração de 
 #### Video
 
 ### Diagrama
+![Diagrama](https://user-images.githubusercontent.com/7011282/164956282-09c4b4b3-eebb-4aa0-9acd-684fa8f22c21.png)
 
 #### Especificações
 
@@ -32,13 +33,13 @@ Este documento tem como objetivo descrever os requisitos para a elaboração de 
 ### Testes
 
 - Cadastro
-<img width="1036" alt="teste_cadastro" src="https://user-images.githubusercontent.com/7011282/164955375-a8aa0cc1-f7e7-4791-b3fc-42bedd45ef01.png">
+![Teste Cadastro](https://user-images.githubusercontent.com/7011282/164955375-a8aa0cc1-f7e7-4791-b3fc-42bedd45ef01.png)
 
 - Vendas
-<img width="1036" alt="teste_venda" src="https://user-images.githubusercontent.com/7011282/164955393-432b4137-0b72-438e-80f2-91a5d6717970.png">
+![Teste Venda](https://user-images.githubusercontent.com/7011282/164955393-432b4137-0b72-438e-80f2-91a5d6717970.png)
      
 - Consumer
-<img width="1037" alt="teste_consumer" src="https://user-images.githubusercontent.com/7011282/164955416-23649172-5a07-4f25-8d29-d721aaefc85e.png">
+![Teste Consumer](https://user-images.githubusercontent.com/7011282/164955416-23649172-5a07-4f25-8d29-d721aaefc85e.png)
 
 
 #### Requisitos
