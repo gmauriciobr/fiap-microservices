@@ -6,6 +6,7 @@ import br.com.fiap.model.Pedido;
 import br.com.fiap.model.PedidoItem;
 import br.com.fiap.validation.AlbumConstraint;
 import br.com.fiap.validation.FotosConstraint;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -42,6 +43,7 @@ public class PedidoDTO {
     Pedido pedido = new Pedido();
     BeanUtils.copyProperties(dto, pedido);
     pedido.setAlbum(album);
+    pedido.setValorTotal(album.getValorFoto().multiply(BigDecimal.valueOf(fotos.size())));
     pedido.setPedidoItems(fotos.stream().map(foto ->
        PedidoItem.builder().pedido(pedido).foto(foto).build()
     ).collect(Collectors.toList()));

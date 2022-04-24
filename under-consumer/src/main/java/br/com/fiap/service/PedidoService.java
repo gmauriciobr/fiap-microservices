@@ -16,9 +16,10 @@ public class PedidoService {
   public void execute(Message message) throws IOException {
     try {
       EnviaPedidoDTO dto = new ObjectMapper().readValue(message.getBody(), EnviaPedidoDTO.class);
-      log.info("Enviando por email pedido [{}] total de [{}] fotos", dto.getId(), dto.getFotos().size());
+      log.info("Enviando por email [{}] pedido [{}] total de [{}] fotos",
+        dto.getEmail(), dto.getId(), dto.getFotos().size());
     } catch (IOException e) {
-      log.error("Erro ao enviar peddido", e);
+      log.error("Erro ao enviar pedido", e);
       throw e;
     }
   }

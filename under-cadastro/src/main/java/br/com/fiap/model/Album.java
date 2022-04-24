@@ -1,5 +1,6 @@
 package br.com.fiap.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -38,6 +39,8 @@ public class Album {
   private Fotografo fotografo;
 
   private String nome;
+
+  private BigDecimal valorFoto;
 
   @Column(nullable = false, updatable = false, columnDefinition = "char")
   private String token;

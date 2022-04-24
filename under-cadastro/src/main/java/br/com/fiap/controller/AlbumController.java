@@ -40,7 +40,7 @@ public class AlbumController {
   @PostMapping
   @Operation(tags = {"album"}, summary = "Cadastra Album")
   public ResponseEntity<AlbumViewModel> cadastro(@RequestBody @Valid AlbumDTO dto, UriComponentsBuilder uriBuilder) {
-    log.info("Cadastra Album: [{}]", dto);
+    log.info("Cadastra Album Fotografo [{}]", dto.getFotografoId());
     var album = albumService.cadastro(dto);
     var uri = uriBuilder.path("/album/{id}").buildAndExpand(album.getId()).toUri();
     return ResponseEntity.created(uri).body(new AlbumViewModel(album));

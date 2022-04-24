@@ -1,6 +1,6 @@
 package br.com.fiap.dto;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,7 +16,7 @@ import org.hibernate.validator.constraints.Range;
 public class AlbumUpdateDTO {
 
   private String nome;
-  private LocalDateTime dataEvento;
+  private BigDecimal valorFoto;
   @Range(min = 1, max = 100)
   private int qualidade;
 

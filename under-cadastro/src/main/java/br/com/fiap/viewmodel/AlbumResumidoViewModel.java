@@ -1,6 +1,7 @@
 package br.com.fiap.viewmodel;
 
 import br.com.fiap.model.Album;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.Getter;
@@ -13,6 +14,7 @@ public class AlbumResumidoViewModel {
 
   private Long id;
   private String nome;
+  private BigDecimal valorFoto;
   private String token;
   private Long quantidadeFotos;
 

@@ -1,5 +1,6 @@
 package br.com.fiap.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -40,6 +41,8 @@ public class Pedido {
   private String email;
 
   private String numeroCartao;
+
+  private BigDecimal valorTotal;
 
   @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
   private List<PedidoItem> pedidoItems;

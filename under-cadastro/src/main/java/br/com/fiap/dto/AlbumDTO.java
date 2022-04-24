@@ -3,6 +3,7 @@ package br.com.fiap.dto;
 import br.com.fiap.model.Album;
 import br.com.fiap.model.Fotografo;
 import br.com.fiap.validation.FotografoConstraint;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class AlbumDTO {
   @FotografoConstraint
   private Long fotografoId;
   private String nome;
+  private BigDecimal valorFoto;
   @Range(min = 1, max = 100)
   private int qualidade;
 
