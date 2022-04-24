@@ -78,9 +78,8 @@ public class AlbumControllerTest {
 
   @Test
   @Order(4)
-  @Disabled
   void dadoIdExistente_quandoDeleta_entaoSucesso() throws Exception {
-    mockMvc.perform(delete("/album/{id}", 1L))
+    mockMvc.perform(delete("/album/{id}", 2L))
       .andExpect(status().isOk());
   }
 

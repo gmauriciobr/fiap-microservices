@@ -2,7 +2,7 @@ CREATE TABLE album (
      id bigint NOT NULL AUTO_INCREMENT,
      fotografo_id bigint DEFAULT NULL,
      nome varchar(255) DEFAULT NULL,
-     valor_foto decimal(10,2) DEFAULT NULL,
+     valor_foto decimal(10,2) NOT NULL,
      qualidade int NOT NULL,
      token char(36) DEFAULT NULL,
      data_alteracao datetime(6) DEFAULT NULL,
