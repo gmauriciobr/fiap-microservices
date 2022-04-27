@@ -82,4 +82,5 @@ services:
 
 networks:
   spring-network:
-    driver: bridge
+    # driver: bridge
+    external: true
