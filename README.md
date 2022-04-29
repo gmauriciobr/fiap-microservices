@@ -12,7 +12,6 @@
 
 Este documento tem como objetivo descrever os requisitos para a elaboração de um projeto usado como avaliação da disciplina.
 
-#### Video
 
 ### Diagrama
 ![Diagrama](https://user-images.githubusercontent.com/7011282/164956282-09c4b4b3-eebb-4aa0-9acd-684fa8f22c21.png)
